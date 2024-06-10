@@ -42,6 +42,12 @@ next.addEventListener("click",
 
             // aggiungo classe a nuovo elemento active
             items[activeItem].classList.add("active");
+
+        // aggiungo ciclo infinito next
+        }else if(activeItem === arrayImg.length - 1) {
+            items[activeItem].classList.remove("active");
+            activeItem = 0;
+            items[activeItem].classList.add("active");
         }
     }
 )
@@ -52,11 +58,13 @@ const prev = document.querySelector(".prev");
 // gestisco click su prev
 prev.addEventListener("click",
     function() {
-        // verifico di non essere alla fine delle img (al contario)
+        // aggiungo ciclo infinito next
         if(activeItem === 0) {
-            // aggiungo classe active
+            items[activeItem].classList.remove("active");
+            activeItem = arrayImg.length - 1;
             items[activeItem].classList.add("active");
 
+        // altrimenti, per tutte le altre immagini
         }else if(activeItem <= arrayImg.length - 1) {
             // rimuovo classe active
             items[activeItem].classList.remove("active");
